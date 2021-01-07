@@ -37,4 +37,10 @@
     background: none;
     overflow: hidden;
     color: white;
+    transition: all .4s ease;
+}
+
+.header__authorization-button:hover {
+    color: black;
+    background-color: white;
 }
