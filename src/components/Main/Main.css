@@ -1,0 +1,9 @@
+.main {
+    width: 100%;
+}
+
+.main__backdrop {
+    background-image: url('../../images/header-picture.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
