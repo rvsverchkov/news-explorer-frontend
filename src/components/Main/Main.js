@@ -1,5 +1,6 @@
 import './Main.css';
 import Header from '../Header/Header.js';
+import Search from '../Search/Search.js';
 
 function Main (props) {
     return (
@@ -7,6 +8,7 @@ function Main (props) {
             <div className="main">
                 <div className="main__backdrop">
                     <Header />
+                    <Search />
                 </div>
             </div>
         </main>

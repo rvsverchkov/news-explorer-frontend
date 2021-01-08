@@ -7,6 +7,7 @@
     max-width: 1440px;
     margin: 0 auto;
     height: 80px;
+    border-bottom: 1px solid rgba(196, 196, 196, .3);
 }
 
 .header__main-link {
@@ -15,7 +16,12 @@
     font-size: 20px;
     line-height: 24px;
     margin-left: 104px;
+    transition: all .2s ease;
 }
+
+    .header__main-link:hover {
+        opacity: .6;
+    }
 
 .header__main-button {
     text-decoration: none;
@@ -23,7 +29,12 @@
     font-size: 18px;
     line-height: 24px;
     margin-right: 32px;
+    transition: all .2s ease;
 }
+
+    .header__main-button:hover {
+        opacity: .6;
+    }
 
 .header__authorization-button {
     text-decoration: none;
@@ -38,9 +49,11 @@
     overflow: hidden;
     color: white;
     transition: all .4s ease;
+    cursor: pointer;
+    margin-right: 104px;
 }
 
-.header__authorization-button:hover {
-    color: black;
-    background-color: white;
-}
+    .header__authorization-button:hover {
+        color: black;
+        background-color: white;
+    }
