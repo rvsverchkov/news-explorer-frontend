@@ -1,0 +1,23 @@
+.results__container {
+    max-width: 1232px;
+    margin: 0 auto;
+    padding-bottom: 64px;
+}
+
+.results__title {
+    margin-top: 0;
+    padding-top: 80px;
+    padding-bottom: 64px;
+    font-family: 'Robotoslab-regular';
+    font-size: 40px;
+    line-height: 46px;
+    font-weight: 400;
+}
+
+.results__grid {
+    max-width: 1440px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-column-gap: 16px;
+    justify-content: center;
+}

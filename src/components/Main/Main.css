@@ -7,3 +7,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.main__background {
+    background-color: #F5F6F7;
+}
