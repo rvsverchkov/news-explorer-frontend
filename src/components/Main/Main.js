@@ -5,6 +5,8 @@ import Results from '../Results/Results.js';
 import About from '../About/About.js';
 import Footer from '../Footer/Footer.js';
 import Avatar from '../../images/avatar.jpg';
+import Github from '../../images/github.svg';
+import Facebook from '../../images/fb.svg';
 
 function Main (props) {
     return (
@@ -26,6 +28,12 @@ function Main (props) {
                         secondParagraph='Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.'
                     />
                 </div>
+                <Footer
+                    facebook={Facebook}
+                    facebookAlt='Facebook Link'
+                    github={Github}
+                    githubAlt='Github Link'
+                />
             </div>
         </main>
     )

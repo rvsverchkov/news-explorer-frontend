@@ -1,0 +1,80 @@
+.footer__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.footer__link-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer__description {
+    font-family: 'Roboto-regular';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #B6BCBF;
+    margin-left: 104px;
+    margin-top: 32px;
+    padding-bottom: 26px;
+    margin-bottom: 0;
+}
+
+.footer__main-link {
+    outline: none;
+    text-decoration: none;
+    color: #1A1B22;
+    font-family: 'Roboto-regular';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    margin-right: 38px;
+    transition: all .3s ease;
+}
+
+    .footer__main-link:hover {
+        opacity: .6;
+    }
+
+.footer__praktikum-link {
+    outline: none;
+    text-decoration: none;
+    color: #1A1B22;
+    font-family: 'Roboto-regular';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    margin-right: 56px;
+    transition: all .3s ease;
+}
+
+    .footer__praktikum-link:hover {
+        opacity: .6;
+    }
+
+.footer__facebook-link {
+    width: 24px;
+    height: 24px;
+    margin-right: 106px;
+    transition: all .3s ease;
+}
+
+    .footer__facebook-link:hover {
+        opacity: .6;
+    }
+
+.footer__github-link {
+    width: 24px;
+    height: 24px;
+    margin-right: 24px;
+    transition: all .3s ease;
+}
+
+    .footer__github-link:hover {
+        opacity: .6;
+    }

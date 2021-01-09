@@ -20,7 +20,7 @@
 }
 
 .about__text-container {
-    margin-top: 131px;
+    margin-top: 105px;
     margin-left: 56px;
 }
 
@@ -29,9 +29,11 @@
     font-size: 40px;
     font-weight: 400;
     line-height: 46px;
+    margin-bottom: 0;
 }
 
 .about__text {
+    margin-top: 23px;
     font-family: 'Roboto-regular';
     font-size: 18px;
     line-height: 24px;
