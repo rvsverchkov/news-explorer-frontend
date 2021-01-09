@@ -1,6 +1,7 @@
 import './Results.css';
 import NewsCard from '../NewsCard/NewsCard.js';
 import park from '../../images/newscard-park.png';
+import forest from '../../images/newscard-forest.png';
 
 function Results (props) {
     return (
@@ -19,15 +20,14 @@ function Results (props) {
                     source='ЛЕНТА.РУ'
                 />
                 <NewsCard 
-                    src={park}
-                    alt='Парк'
+                    src={forest}
+                    alt='Лесные огоньки'
                     date='2 августа, 2019'
-                    title='Национальное достояние - парки'
-                    text='В 2016 году Америка отмечала важный юбилей: 
-                    сто лет назад здесь начала складываться система национальных парков 
-                    – охраняемых территорий, где и сегодня каждый может приобщиться к природе.'
-                    href='https://lenta.ru/'
-                    source='ЛЕНТА.РУ'
+                    title='Лесные огоньки: история одной фотографии'
+                    text='Фотограф отвлеклась от освещения суровой политической реальности Мексики, 
+                    чтобы запечатлеть ускользающую красоту одного из местных чудес природы.'
+                    href='https://meduza.io/'
+                    source='МЕДУЗА'
                 />
                 <NewsCard 
                     src={park}
@@ -41,6 +41,7 @@ function Results (props) {
                     source='ЛЕНТА.РУ'
                 />
             </div>
+            <button className="results__button">Показать еще</button>
         </div>
     )
 }

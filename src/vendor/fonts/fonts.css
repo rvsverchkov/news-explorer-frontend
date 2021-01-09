@@ -7,3 +7,8 @@
     font-family: 'Roboto-regular';
     src: url('./roboto-regular.woff') format('woff');
 }
+
+@font-face {
+    font-family: 'Sourcesanspro-regular';
+    src: url('./sourcesanspro-regular.woff') format('woff');
+}

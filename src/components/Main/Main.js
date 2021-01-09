@@ -7,12 +7,15 @@ function Main (props) {
     return (
         <main>
             <div className="main">
-                <div className="main__backdrop">
+                <div className="main__header-background">
                     <Header />
                     <SearchForm />
                 </div>
-                <div className="main__background">
+                <div className="main__results-background">
                     <Results />
+                </div>
+                <div className="main__about-background">
+
                 </div>
             </div>
         </main>

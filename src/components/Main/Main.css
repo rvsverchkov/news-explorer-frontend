@@ -2,12 +2,16 @@
     width: 100%;
 }
 
-.main__backdrop {
+.main__header-background {
     background-image: url('../../images/header-picture.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.main__background {
+.main__results-background {
     background-color: #F5F6F7;
+}
+
+.main__about-background {
+    background-color: white;
 }
