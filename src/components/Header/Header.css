@@ -56,3 +56,10 @@
         color: black;
         background-color: white;
     }
+
+@media screen and (max-width: 768px) {
+    .header__authorization-button {
+        width: 152px;
+        height: 40px;
+    }
+} 

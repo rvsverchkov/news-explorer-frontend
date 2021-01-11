@@ -22,6 +22,7 @@
 .about__text-container {
     margin-top: 105px;
     margin-left: 56px;
+    margin-right: 104px;
 }
 
 .about__title {
@@ -40,3 +41,39 @@
     font-weight: 400;
     max-width: 600px;
 }
+
+@media screen and (max-width: 1024px) {
+    .about__title {
+        font-size: 30px;
+        line-height: 40px;
+    }
+
+    .about__image {
+        width: 340px;
+        height: 340px;
+        margin-left: 60px;
+        margin-top: 70px;
+    }
+
+    .about__text-container {
+        margin-right: 60px;
+        margin-top: 60px;
+    }
+} 
+
+@media screen and (max-width: 768px) {
+    .about__image {
+        width: 232px;
+        height: 232px;
+        margin-left: 40px;
+        margin-top: 61px;
+    }
+
+    .about__container {
+        padding-bottom: 61px;
+    }
+
+    .about__text-container {
+        margin-top: 40px;
+    }
+} 

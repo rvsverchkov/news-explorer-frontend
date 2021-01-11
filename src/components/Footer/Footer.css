@@ -9,8 +9,7 @@
 
 .footer__link-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-right: 104px;
 }
 
 .footer__description {
@@ -78,3 +77,14 @@
     .footer__github-link:hover {
         opacity: .6;
     }
+
+@media screen and (max-width: 1024px) {
+    .footer__description {
+        margin-left: 40px;
+        padding-bottom: 18px;
+    }
+} 
+
+@media screen and (max-width: 768px) {
+    
+} 
