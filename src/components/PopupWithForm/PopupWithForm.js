@@ -11,6 +11,9 @@ function PopupWithForm(props) {
                     {props.children}
                     <button type='sumbit' className='popup__save'>{props.submit}</button>
                 </form>
+                <div className='popup__subtitle-container'>
+                    <p className='popup__subtitle'>или <button className='popup__register-button' onClick={props.onRegister}>{props.anotherAction}</button></p>
+                </div>
             </div>
         </section>
     )

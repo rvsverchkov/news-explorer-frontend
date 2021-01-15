@@ -1,14 +1,14 @@
 import React from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm.js';
 
-function LoginPopup (props) {
+function RegisterPopup (props) {
     return (
         <PopupWithForm
             checkOpen={props.isOpen}
             title='Вход'
             closePopup={props.onClose}
             submit='Войти'
-            anotherAction='Зарегистрироваться'
+            anotherAction='Войти'
         >
             <p className='popup__input-title'>Email</p>
             <input
@@ -34,4 +34,4 @@ function LoginPopup (props) {
     )
 }
 
-export default LoginPopup;
+export default RegisterPopup;

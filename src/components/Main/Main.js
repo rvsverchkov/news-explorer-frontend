@@ -13,7 +13,7 @@ function Main (props) {
         <main>
             <div className="main">
                 <div className="main__header-background">
-                    <Header />
+                    <Header onLoginPopup={props.onLoginPopup} />
                     <SearchForm />
                 </div>
                 <div className="main__results-background">

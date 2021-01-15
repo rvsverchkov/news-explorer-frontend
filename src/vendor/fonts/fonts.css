@@ -14,6 +14,11 @@
 }
 
 @font-face {
+    font-family: 'Inter';
+    src: url('./inter-regular.woff') format('woff');
+}
+
+@font-face {
     font-family: 'Sourcesanspro-regular';
     src: url('./sourcesanspro-regular.woff') format('woff');
 }

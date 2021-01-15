@@ -7,7 +7,7 @@ function Header (props) {
             <NavLink className="header__main-link" to="/">NewsExplorer</NavLink>
             <div>
                 <NavLink className="header__main-button" to="/">Главная</NavLink>
-                <button className="header__authorization-button" to="/">Авторизоваться</button>
+                <button className="header__authorization-button" to="/" onClick={props.onLoginPopup}>Авторизоваться</button>
             </div>
         </div>
     )
