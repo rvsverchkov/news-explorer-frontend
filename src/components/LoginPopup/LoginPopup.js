@@ -9,6 +9,7 @@ function LoginPopup (props) {
             closePopup={props.onClose}
             submit='Войти'
             anotherAction='Зарегистрироваться'
+            onAnotherAction={props.onRegisterPopup}
         >
             <p className='popup__input-title'>Email</p>
             <input
@@ -16,9 +17,10 @@ function LoginPopup (props) {
                 type='text'
                 placeholder='Введите почту'
                 className='popup__input'
-                id='email-input'
+                id='email-login'
                 minLength='2'
                 maxLength='40'
+                defaultValue='example@test.com'
             />
             <p className='popup__input-title'>Пароль</p>
             <input
@@ -26,9 +28,10 @@ function LoginPopup (props) {
                 type='password'
                 placeholder='Введите пароль'
                 className='popup__input'
-                id='email-input'
+                id='password-login'
                 minLength='2'
                 maxLength='40'
+                defaultValue='greta123'
             />
         </PopupWithForm>
     )

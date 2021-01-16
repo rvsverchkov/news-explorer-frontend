@@ -5,10 +5,12 @@ function RegisterPopup (props) {
     return (
         <PopupWithForm
             checkOpen={props.isOpen}
-            title='Вход'
+            disable='true'
+            title='Регистрация'
             closePopup={props.onClose}
-            submit='Войти'
+            submit='Зарегистрироваться'
             anotherAction='Войти'
+            onAnotherAction={props.onLoginPopup}
         >
             <p className='popup__input-title'>Email</p>
             <input
@@ -16,7 +18,7 @@ function RegisterPopup (props) {
                 type='text'
                 placeholder='Введите почту'
                 className='popup__input'
-                id='email-input'
+                id='email-register'
                 minLength='2'
                 maxLength='40'
             />
@@ -26,7 +28,17 @@ function RegisterPopup (props) {
                 type='password'
                 placeholder='Введите пароль'
                 className='popup__input'
-                id='email-input'
+                id='password-register'
+                minLength='2'
+                maxLength='40'
+            />
+            <p className='popup__input-title'>Имя</p>
+            <input
+                name='name'
+                type='text'
+                placeholder='Введите ваше имя'
+                className='popup__input'
+                id='name-register'
                 minLength='2'
                 maxLength='40'
             />

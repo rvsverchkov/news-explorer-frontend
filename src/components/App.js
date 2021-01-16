@@ -12,13 +12,16 @@ function App() {
 
   const closeAllPopups = () => {
     setLoginPopupOpened(false);
+    setRegisterPopupOpened(false);
   }
 
   const handleLoginPopupClick = () => {
+    setRegisterPopupOpened(false);
     setLoginPopupOpened(!isLoginPopupOpened);
   }
 
   const handleRegisterPopupClick = () => {
+    setLoginPopupOpened(false);
     setRegisterPopupOpened(!isRegisterPopupOpened);
   }
 
@@ -29,8 +32,8 @@ function App() {
           <Main onLoginPopup={handleLoginPopupClick} />
         </Route>
       </Switch>
-      <LoginPopup isOpen={isLoginPopupOpened} onClose={closeAllPopups} onRegisterPopup={handleRegisterPopupClick} onLoginPopup={handleLoginPopupClick} />
-      <RegisterPopup isOpen={isRegisterPopupOpened} onClose={closeAllPopups} />
+      <LoginPopup isOpen={isLoginPopupOpened} onClose={closeAllPopups} onRegisterPopup={handleRegisterPopupClick} />
+      <RegisterPopup isOpen={isRegisterPopupOpened} onClose={closeAllPopups} onLoginPopup={handleLoginPopupClick} />
     </div>
   );
 }
