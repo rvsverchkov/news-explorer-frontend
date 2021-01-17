@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Main from './Main/Main.js';
 import LoginPopup from './LoginPopup/LoginPopup.js';
@@ -9,6 +9,7 @@ function App() {
 
   const [isLoginPopupOpened, setLoginPopupOpened] = useState(false);
   const [isRegisterPopupOpened, setRegisterPopupOpened] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
   const closeAllPopups = () => {
     setLoginPopupOpened(false);
@@ -25,14 +26,18 @@ function App() {
     setRegisterPopupOpened(!isRegisterPopupOpened);
   }
 
+  const handleLoggedInClick = () => {
+    setLoggedIn(!isLoggedIn);
+  }
+
   return (
     <div className="App">
       <Switch>
         <Route exact path="/">
-          <Main onLoginPopup={handleLoginPopupClick} />
+          <Main onLoginPopup={handleLoginPopupClick} isLoggedIn={isLoggedIn} />
         </Route>
       </Switch>
-      <LoginPopup isOpen={isLoginPopupOpened} onClose={closeAllPopups} onRegisterPopup={handleRegisterPopupClick} />
+      <LoginPopup isOpen={isLoginPopupOpened} onClose={closeAllPopups} onRegisterPopup={handleRegisterPopupClick} handleLoggedInClick={handleLoggedInClick} />
       <RegisterPopup isOpen={isRegisterPopupOpened} onClose={closeAllPopups} onLoginPopup={handleLoginPopupClick} />
     </div>
   );

@@ -2,6 +2,9 @@ import React from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm.js';
 
 function RegisterPopup (props) {
+
+
+
     return (
         <PopupWithForm
             checkOpen={props.isOpen}
@@ -21,6 +24,7 @@ function RegisterPopup (props) {
                 id='email-register'
                 minLength='2'
                 maxLength='40'
+                required
             />
             <p className='popup__input-title'>Пароль</p>
             <input
@@ -31,6 +35,7 @@ function RegisterPopup (props) {
                 id='password-register'
                 minLength='2'
                 maxLength='40'
+                required
             />
             <p className='popup__input-title'>Имя</p>
             <input
@@ -41,6 +46,7 @@ function RegisterPopup (props) {
                 id='name-register'
                 minLength='2'
                 maxLength='40'
+                required
             />
         </PopupWithForm>
     )

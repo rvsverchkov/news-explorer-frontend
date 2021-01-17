@@ -64,7 +64,7 @@
     line-height: calc(22/18);
     height: 64px;
     border-radius: 100px;
-    margin-top: 12px;
+    margin-top: 40px;
     outline: none;
     background-color: #2F71E5;
     color: white;
@@ -80,7 +80,7 @@
     line-height: calc(22/18);
     height: 64px;
     border-radius: 100px;
-    margin-top: 12px;
+    margin-top: 40px;
     outline: none;
     color: #B6BCBF;
     border: 0;
@@ -98,7 +98,7 @@
     width: auto;
     margin-left: 36px;
     margin-right: 36px;
-    margin-top: 26px;
+    margin-top: 20px;
     padding-bottom: 14px;
 }
 
@@ -112,10 +112,24 @@
     padding: 0;
     line-height: calc(17/14);
     font-size: 14px;
-    margin-bottom: 32px;
     height: 30px;
     margin-top: 0;
+    margin-bottom: 21px;
     color: #000000
+}
+
+.popup__input-error {
+    margin-bottom: 0;
+}
+
+.popup__input-message {
+    font-family: 'Inter';
+    font-size: 12px;
+    line-height: 14,52px;
+    font-weight: 400;
+    color: #FF0000;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .popup__input-title {
@@ -123,7 +137,6 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 14,52px;
-    margin-top: 0;
     margin-bottom: 0;
     color: #2F71E5;
 }
