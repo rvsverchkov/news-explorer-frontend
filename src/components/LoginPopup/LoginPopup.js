@@ -8,10 +8,7 @@ const initialValues = {
     password: ''
 }
 
-const onSubmit = (values, props) => {
-    console.log('Form date', values);
-    props.onClose();
-}
+const validateOnMount = true;
 
 const validationSchema = Yup.object({
     email: Yup.string()
@@ -22,27 +19,17 @@ const validationSchema = Yup.object({
 
 function LoginPopup (props) {
 
-    const email = React.useRef();
-    const password = React.useRef();
-
-    React.useEffect(() => {
-        email.current.value = '';
-        password.current.value = '';
-    }, []);
-
     const formik = useFormik({
         initialValues,
-        onSubmit,
         validationSchema,
+        validateOnMount
     })
-
-    console.log('Visited fields', formik.touched);
 
     return (
         <PopupWithForm
             checkOpen={props.isOpen}
             title='Вход'
-            handleSubmit={formik.handleSubmit}
+            handleSubmit={props.handleLoggedInClick}
             closePopup={props.onClose}
             isValid={!formik.isValid}
             submit='Войти'
@@ -51,7 +38,6 @@ function LoginPopup (props) {
         >
             <p className='popup__input-title'>Email</p>
             <input
-                ref={email}
                 name='email'
                 type='email'
                 placeholder='Введите почту'
@@ -59,15 +45,12 @@ function LoginPopup (props) {
                 id='email-login'
                 minLength='2'
                 maxLength='40'
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.email}
+                { ... formik.getFieldProps('email') }
                 required
             />
             {formik.touched.email && formik.errors.email ? <span className='popup__input-message'>{formik.errors.email}</span> : null}
             <p className='popup__input-title'>Пароль</p>
             <input
-                ref={password}
                 name='password'
                 type='password'
                 placeholder='Введите пароль'
@@ -75,9 +58,7 @@ function LoginPopup (props) {
                 id='password-login'
                 minLength='2'
                 maxLength='40'
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.password}
+                { ... formik.getFieldProps('password') }
                 required
             />
             {formik.touched.password && formik.errors.password ? <span className='popup__input-message'>{formik.errors.password}</span> : null}

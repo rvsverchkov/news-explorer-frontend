@@ -26,19 +26,22 @@ function App() {
     setRegisterPopupOpened(!isRegisterPopupOpened);
   }
 
-  const handleLoggedInClick = () => {
+  const handleLoggedInClick = (e) => {
+    e.preventDefault();
+    closeAllPopups();
     setLoggedIn(!isLoggedIn);
+    console.log('123');
   }
 
   return (
     <div className="App">
       <Switch>
         <Route exact path="/">
-          <Main onLoginPopup={handleLoginPopupClick} isLoggedIn={isLoggedIn} />
+          <Main onLoginPopup={handleLoginPopupClick} isLoggedIn={!isLoggedIn} />
         </Route>
       </Switch>
       <LoginPopup isOpen={isLoginPopupOpened} onClose={closeAllPopups} onRegisterPopup={handleRegisterPopupClick} handleLoggedInClick={handleLoggedInClick} />
-      <RegisterPopup isOpen={isRegisterPopupOpened} onClose={closeAllPopups} onLoginPopup={handleLoginPopupClick} />
+      <RegisterPopup isOpen={isRegisterPopupOpened} onClose={closeAllPopups} onLoginPopup={handleLoginPopupClick} handleLoggedInClick={handleLoggedInClick} />
     </div>
   );
 }
