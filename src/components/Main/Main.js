@@ -2,9 +2,12 @@ import './Main.css';
 import Header from '../Header/Header.js';
 import SearchForm from '../SearchForm/Search.js';
 import Results from '../Results/Results.js';
+import Preloader from '../Preloader/Preloader.js';
+import NotFound from '../NotFound/NotFound.js';
 import About from '../About/About.js';
 import Footer from '../Footer/Footer.js';
 import Avatar from '../../images/avatar.jpg';
+import NotFoundImage from '../../images/not-found.svg';
 import Github from '../../images/github.svg';
 import Facebook from '../../images/fb.svg';
 
@@ -14,7 +17,11 @@ function Main (props) {
             <div className="main">
                 <div className="main__header-background">
                     <Header onLoginPopup={props.onLoginPopup} isLoggedIn={props.isLoggedIn} />
-                    <SearchForm />
+                    <SearchForm handleSearchClick={props.handleSearchClick} />
+                </div>
+                <div className="main__preloader">
+                    {props.isSearching ? <Preloader /> : null}
+                    {props.isError ? <NotFound src={NotFoundImage} /> : null}
                 </div>
                 <div className="main__results-background">
                     <Results />

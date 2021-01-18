@@ -7,7 +7,7 @@ function Search (props) {
             <p className="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете</p>
             <form className="search__form">
                 <input className="search__input" placeholder="Введите тему новости"/>
-                <button className="search__button">Искать</button>
+                <button className="search__button" onClick={props.handleSearchClick}>Искать</button>
             </form>
         </div>
     )

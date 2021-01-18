@@ -9,6 +9,8 @@ function App() {
 
   const [isLoginPopupOpened, setLoginPopupOpened] = useState(false);
   const [isRegisterPopupOpened, setRegisterPopupOpened] = useState(false);
+  const [isSearching, setSearchingOn] = useState(false);
+  const [isError, setError] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(false);
 
   const closeAllPopups = () => {
@@ -30,14 +32,25 @@ function App() {
     e.preventDefault();
     closeAllPopups();
     setLoggedIn(!isLoggedIn);
-    console.log('123');
+  }
+
+  const handleSearchClick = (e) => {
+    e.preventDefault();
+    setError(false);
+    setSearchingOn(!isSearching);
+    setTimeout(handleSearchErrorClick, 500);
+  }
+
+  const handleSearchErrorClick = () => {
+    setSearchingOn(false);
+    setError(true);
   }
 
   return (
     <div className="App">
       <Switch>
         <Route exact path="/">
-          <Main onLoginPopup={handleLoginPopupClick} isLoggedIn={!isLoggedIn} />
+          <Main onLoginPopup={handleLoginPopupClick} isLoggedIn={!isLoggedIn} handleSearchClick={handleSearchClick} isSearching={isSearching} isError={isError} />
         </Route>
       </Switch>
       <LoginPopup isOpen={isLoginPopupOpened} onClose={closeAllPopups} onRegisterPopup={handleRegisterPopupClick} handleLoggedInClick={handleLoggedInClick} />
