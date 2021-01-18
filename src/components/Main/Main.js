@@ -6,8 +6,12 @@ import Preloader from '../Preloader/Preloader.js';
 import NotFound from '../NotFound/NotFound.js';
 import About from '../About/About.js';
 import Footer from '../Footer/Footer.js';
+import SavedNews from '../SavedNews/SavedNews.js';
+import SavedNewsGrid from '../SavedNewsGrid/SavedNewsGrid.js';
 import Avatar from '../../images/avatar.jpg';
 import NotFoundImage from '../../images/not-found.svg';
+import Logout from '../../images/logout.svg';
+import LogoutBlack from '../../images/logout-black.svg';
 import Github from '../../images/github.svg';
 import Facebook from '../../images/fb.svg';
 
@@ -15,25 +19,31 @@ function Main (props) {
     return (
         <main>
             <div className="main">
-                <div className="main__header-background">
-                    <Header onLoginPopup={props.onLoginPopup} isLoggedIn={props.isLoggedIn} />
-                    <SearchForm handleSearchClick={props.handleSearchClick} />
+                <div className={`${props.isMain ? 'main__header-background' : ''}`}>
+                    <Header onLoginPopup={props.onLoginPopup} isLoggedIn={props.isLoggedIn} src={Logout} srcBlack={LogoutBlack} alt="Logout" isMain={props.isMain} />
+                    {props.isMain ? <SearchForm handleSearchClick={props.handleSearchClick}/> : null}
                 </div>
-                <div className="main__preloader">
+                {props.isMain ? <div className="main__preloader">
                     {props.isSearching ? <Preloader /> : null}
                     {props.isError ? <NotFound src={NotFoundImage} /> : null}
-                </div>
+                </div> : null}
                 <div className="main__results-background">
-                    <Results />
+                    {props.isMain ? <Results /> : null}
+                </div>
+                <div className="main__saved">
+                    {props.isMain ? null : <SavedNews />}
+                </div>
+                <div className="main__saved-grid">
+                    {props.isMain ? null : <SavedNewsGrid />}
                 </div>
                 <div className="main__about-background">
-                    <About
+                    {props.isMain ? <About
                         src={Avatar}
                         alt='Аватар'
                         title='Об авторе'
                         firstParagraph='Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.'
                         secondParagraph='Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.'
-                    />
+                    /> : null}
                 </div>
                 <Footer
                     facebook={Facebook}

@@ -1,0 +1,46 @@
+.saved__container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.saved__title {
+    margin-left: 104px;
+    margin-top: 40px;
+    margin-bottom: 28px;
+    font-family: 'Roboto-regular';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #55555a;
+}
+
+.saved__message {
+    margin-left: 104px;
+    margin-top: 0;
+    margin-bottom: 30px;
+    max-width: 530px;
+    font-family: 'Robotoslab-regular';
+    font-size: 40px;
+    line-height: 46px;
+    font-weight: 400;
+}
+
+.saved__subtitle {
+    margin-left: 104px;
+    margin-top: 0;
+    font-family: 'Roboto-regular';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 56px;
+}
+
+.saved__grid {
+    max-width: 1440px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    grid-gap: 16px;
+    justify-content: center;
+    padding-bottom: 64px;
+}

@@ -50,7 +50,10 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path="/">
-          <Main onLoginPopup={handleLoginPopupClick} isLoggedIn={!isLoggedIn} handleSearchClick={handleSearchClick} isSearching={isSearching} isError={isError} />
+          <Main isMain="true" onLoginPopup={handleLoginPopupClick} isLoggedIn={!isLoggedIn} handleSearchClick={handleSearchClick} isSearching={isSearching} isError={isError} />
+        </Route>
+        <Route exact path="/saved-news">
+          <Main />
         </Route>
       </Switch>
       <LoginPopup isOpen={isLoginPopupOpened} onClose={closeAllPopups} onRegisterPopup={handleRegisterPopupClick} handleLoggedInClick={handleLoggedInClick} />
