@@ -29,6 +29,7 @@ function LoginPopup (props) {
         <PopupWithForm
             checkOpen={props.isOpen}
             title='Вход'
+            name='login'
             handleSubmit={props.handleLoggedInClick}
             closePopup={props.onClose}
             isValid={!formik.isValid}

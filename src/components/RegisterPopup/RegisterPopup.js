@@ -32,6 +32,7 @@ function RegisterPopup (props) {
             checkOpen={props.isOpen}
             disable='true'
             title='Регистрация'
+            name='register'
             handleSubmit={props.handleLoggedInClick}
             closePopup={props.onClose}
             isValid={!formik.isValid}
