@@ -1,4 +1,5 @@
 import './Header.css';
+import ButtonMenu from '../ButtonMenu/ButtonMenu.js';
 import { NavLink } from 'react-router-dom';
 
 function Header (props) {
@@ -24,7 +25,8 @@ function Header (props) {
                     </div>
                 }
             </div>
-            <img src={props.srcMenu} alt={props.altMenu} className="header__menu-button" onClick={console1}/>
+            {props.isMenuOpen ? <ButtonMenu isMenuOpen={props.isMenuOpen} onLoginPopup={props.onLoginPopup} /> : null}
+            <img src={props.isCloseButton ? props.CloseButton : props.srcMenu} alt={props.altMenu} className="header__menu-button" onClick={props.openMenu}/>
         </div>
     )
 }

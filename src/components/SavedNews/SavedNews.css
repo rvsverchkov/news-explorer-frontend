@@ -44,3 +44,25 @@
     justify-content: center;
     padding-bottom: 64px;
 }
+
+@media screen and (max-width: 500px) {
+    .saved__title {
+        margin-left: 16px;
+        margin-top: 8px;
+        margin-bottom: 16px;
+        font-size: 12px;
+    }
+
+    .saved__message {
+        font-size: 30px;
+        line-height: 34px;
+        margin-left: 16px;
+        margin-bottom: 16px;
+    }
+
+    .saved__subtitle {
+        margin-left: 16px;
+        margin-top: 0;
+        margin-bottom: 32px;
+    }
+} 

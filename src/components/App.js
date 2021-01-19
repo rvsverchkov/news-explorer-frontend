@@ -12,6 +12,8 @@ function App() {
   const [isSearching, setSearchingOn] = useState(false);
   const [isError, setError] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isCloseButton, setCloseButton] = useState(false);
 
   const closeAllPopups = () => {
     setLoginPopupOpened(false);
@@ -46,11 +48,18 @@ function App() {
     setError(true);
   }
 
+  const openMenu = () => {
+    setMenuOpen(!isMenuOpen);
+    setCloseButton(!isCloseButton);
+  }
+
   return (
     <div className="App">
       <Switch>
         <Route exact path="/">
-          <Main isMain="true" onLoginPopup={handleLoginPopupClick} isLoggedIn={!isLoggedIn} handleSearchClick={handleSearchClick} isSearching={isSearching} isError={isError} />
+          <Main isCloseButton={isCloseButton} isMain="true" openMenu={openMenu} isMenuOpen={isMenuOpen} 
+          onLoginPopup={handleLoginPopupClick} isLoggedIn={!isLoggedIn} handleSearchClick={handleSearchClick} 
+          isSearching={isSearching} isError={isError} />
         </Route>
         <Route exact path="/saved-news">
           <Main />
