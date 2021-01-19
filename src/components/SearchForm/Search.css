@@ -69,3 +69,22 @@
         .search__button:active {
             background-color: #2A65CC;
         }
+
+@media screen and (max-width: 900px) {
+    .search__title {
+        font-size: 36px;
+        line-height: 40px;
+        max-width: 385px;
+        margin-top: 32px;
+        margin-bottom: 16px;
+    }
+
+    .search__container {
+        max-width: 448px;
+        padding-bottom: 48px;
+    }
+
+    .search__subtitle {
+        margin-bottom: 48px;
+    }
+} 

@@ -9,6 +9,10 @@
 	animation: spin 2s infinite linear;
 }
 
+.preloader__container {
+	padding-top: 62px;
+}
+
 .preloader__subtitle {
 	margin-bottom: 0;
 	width: 100%;

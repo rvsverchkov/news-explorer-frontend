@@ -65,3 +65,33 @@
     .card__source:hover {
         color: rgba(0, 0, 0, 0.7)
     }
+
+@media screen and (max-width: 900px) {
+    .card__picture {
+        width: 224px;
+        height: 150px;
+    }
+
+    .card__date {
+        margin-top: 16px;
+    }
+
+    .card__title {
+        font-size: 22px;
+        line-height: 24px;
+        margin-top: 12px;
+    }
+
+    .card__text {
+        margin-top: 10px;
+        margin-bottom: 12px;
+    }
+
+    .card__background {
+        max-width: 192px;
+    }
+
+    .card__text-container {
+        max-width: 192px;
+    }
+} 
