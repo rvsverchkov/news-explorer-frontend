@@ -2,6 +2,11 @@ import './Header.css';
 import { NavLink } from 'react-router-dom';
 
 function Header (props) {
+
+    const console1 = () => {
+        console.log('123');
+    }
+
     return (
         <div className="header__container">
             <NavLink className={`header__main-link ${props.isMain ? '' : 'header__black'}`} to="/">NewsExplorer</NavLink>
@@ -19,6 +24,7 @@ function Header (props) {
                     </div>
                 }
             </div>
+            <img src={props.srcMenu} alt={props.altMenu} className="header__menu-button" onClick={console1}/>
         </div>
     )
 }

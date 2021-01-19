@@ -137,6 +137,12 @@
     }
 }
 
+@media screen and (min-width: 551px) {
+    .header__menu-button {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 550px) {
     .header__navigation {
         display: none;
@@ -149,4 +155,16 @@
     .header__main-link {
         margin-left: 16px;
     }
+
+    .header__menu-button {
+        top: 16px;
+        right: 16px;
+        position: absolute;
+        cursor: pointer;
+        transition: all .4s ease;
+    }
+
+        .header__menu-button:hover {
+            opacity: .6;
+        }
 }

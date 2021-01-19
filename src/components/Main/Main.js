@@ -14,13 +14,14 @@ import Logout from '../../images/logout.svg';
 import LogoutBlack from '../../images/logout-black.svg';
 import Github from '../../images/github.svg';
 import Facebook from '../../images/fb.svg';
+import Menu from '../../images/menu.svg';
 
 function Main (props) {
     return (
         <main>
             <div className="main">
                 <div className={`${props.isMain ? 'main__header-background' : ''}`}>
-                    <Header onLoginPopup={props.onLoginPopup} isLoggedIn={props.isLoggedIn} src={Logout} srcBlack={LogoutBlack} alt="Logout" isMain={props.isMain} />
+                    <Header srcMenu={Menu} altMenu="Menu" onLoginPopup={props.onLoginPopup} isLoggedIn={props.isLoggedIn} src={Logout} srcBlack={LogoutBlack} alt="Logout" isMain={props.isMain} />
                     {props.isMain ? <SearchForm handleSearchClick={props.handleSearchClick}/> : null}
                 </div>
                 {props.isMain ? <div className="main__preloader">
