@@ -135,4 +135,18 @@
         line-height: 24px;
         margin-right: 40px;
     }
-} 
+}
+
+@media screen and (max-width: 550px) {
+    .header__navigation {
+        display: none;
+    }
+
+    .header__container {
+        height: 56px;
+    }
+
+    .header__main-link {
+        margin-left: 16px;
+    }
+}

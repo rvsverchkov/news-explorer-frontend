@@ -87,6 +87,10 @@
         margin-bottom: 12px;
     }
 
+    .card__container {
+        height: 552px;
+    }
+
     .card__background {
         max-width: 192px;
     }
@@ -94,4 +98,27 @@
     .card__text-container {
         max-width: 192px;
     }
-} 
+}
+
+@media screen and (max-width: 500px) {
+    .card__text-container {
+        max-width: 256px;
+    }
+
+    .card__background {
+        max-width: 256px;
+    }
+
+    .card__container {
+        height: 510px;
+    }
+
+    .card__source {
+        padding-bottom: 12px;
+    }
+
+    .card__picture {
+        width: 288px;
+        height: 196px;
+    }
+}
