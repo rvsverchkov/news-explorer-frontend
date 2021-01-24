@@ -1,0 +1,141 @@
+.search__container {
+    margin: 0 auto;
+    max-width: 608px;
+    padding-bottom: 80px;
+}
+
+.search__title {
+    font-size: 60px;
+    line-height: 64px;
+    color: white;
+    max-width: 608px;
+    margin-top: 80px;
+    font-family: 'Robotoslab-regular';
+    font-weight: 400;
+    margin-bottom: 32px;
+}
+
+.search__subtitle {
+    font-family: 'Roboto-regular';
+    font-weight: 400;
+    color: white;
+    font-size: 18px;
+    line-height: 24px;
+    max-width: 545px;
+    margin-bottom: 64px;
+}
+
+.search__form {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    border-radius: 90px;
+    border: none
+}
+
+.search__input {
+    height: 22px;
+    margin-left: 24px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    line-height: 22px;
+    margin-right: 40px;
+    width: 60%;
+}
+
+.search__button {
+    width: 168px;
+    height: 64px;
+    background-color: #2F71E5;
+    border-radius: 100px;
+    color: white;
+    outline: none;
+    text-decoration: none;
+    border: none;
+    font-size: 18px;
+    line-height: 24px;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+    .search__button:hover {
+        background-color: #347EFF;
+    }
+
+        .search__button:active {
+            background-color: #2A65CC;
+        }
+
+@media screen and (max-width: 900px) {
+    .search__title {
+        font-size: 36px;
+        line-height: 40px;
+        max-width: 385px;
+        margin-top: 32px;
+        margin-bottom: 16px;
+    }
+
+    .search__container {
+        max-width: 448px;
+        padding-bottom: 48px;
+    }
+
+    .search__subtitle {
+        margin-bottom: 48px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .search__title {
+        padding-top: 30px;
+        max-width: 90%;
+        margin: 0 auto;
+        font-size: 36px;
+        line-height: 40px;
+    }
+
+    .search__subtitle {
+        padding-top: 16px;
+        padding-bottom: 122px;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .search__form {
+        max-width: 90%;
+        margin: 0 auto;
+        display: flex;
+        height: 120px;
+        flex-direction: column;
+        background-color: transparent;
+    }
+
+    .search__input {
+        margin-left: 0;
+        margin-right: 0;
+        margin: 0 auto;
+        margin-bottom: 16px;
+        width: 100%;
+        height: 56px;
+        border-radius: 100px;
+    }
+
+    .search__input-container {
+        width: 100%;
+    }
+
+    .search__button {
+        width: 100%;
+        height: 56px;
+        margin-bottom: 10px;
+    }
+
+    .search__button-container {
+        width: 100%;
+        padding-bottom: 10px;
+    }
+}

@@ -1,0 +1,10 @@
+.saved__grid {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 500px) {
+    .saved__grid {
+        grid-template-columns: repeat(auto-fill, 288px);
+    }
+}
