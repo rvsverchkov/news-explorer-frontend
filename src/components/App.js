@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import Main from './Main/Main.js';
 import LoginPopup from './LoginPopup/LoginPopup.js';
 import RegisterPopup from './RegisterPopup/RegisterPopup.js';
+import * as token from '../utils/Token.js';
+import * as explorerAuth from '../utils/ExplorerAuth.js';
 import './App.css';
 
 function App() {

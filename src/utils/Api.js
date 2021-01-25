@@ -5,7 +5,7 @@ class Api {
 }
 
 const api = new Api({
-    baseUrl: 'https://api.rvsverchkov-explorer.students.nomoredomains.work',
+    baseUrl: 'https://api.rvsverchkov-search.students.nomoredomains.work/',
 })
 
 export default api;
