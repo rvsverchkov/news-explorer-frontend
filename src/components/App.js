@@ -3,8 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import Main from './Main/Main.js';
 import LoginPopup from './LoginPopup/LoginPopup.js';
 import RegisterPopup from './RegisterPopup/RegisterPopup.js';
-import * as token from '../utils/Token.js';
-import * as explorerAuth from '../utils/ExplorerAuth.js';
+/*import * as token from '../utils/Token.js';
+import * as explorerAuth from '../utils/ExplorerAuth.js';*/
 import './App.css';
 
 function App() {
@@ -20,6 +20,11 @@ function App() {
   const closeAllPopups = () => {
     setLoginPopupOpened(false);
     setRegisterPopupOpened(false);
+  }
+
+  const onSubmitSearch = (e) => {
+    e.preventDefault();
+    
   }
 
   const handleLoginPopupClick = () => {
@@ -59,9 +64,18 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path="/">
-          <Main isCloseButton={isCloseButton} isMain="true" openMenu={openMenu} isMenuOpen={isMenuOpen} 
-          onLoginPopup={handleLoginPopupClick} isLoggedIn={!isLoggedIn} handleSearchClick={handleSearchClick} 
-          isSearching={isSearching} isError={isError} />
+          <Main 
+            isCloseButton={isCloseButton} 
+            isMain="true" 
+            openMenu={openMenu} 
+            isMenuOpen={isMenuOpen} 
+            onLoginPopup={handleLoginPopupClick} 
+            isLoggedIn={!isLoggedIn} 
+            handleSearchClick={handleSearchClick} 
+            isSearching={isSearching} 
+            isError={isError} 
+            onSubmitSearch={onSubmitSearch}
+          />
         </Route>
         <Route exact path="/saved-news">
           <Main />

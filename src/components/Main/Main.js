@@ -25,7 +25,7 @@ function Main (props) {
                     <Header CloseButton={CloseButton} isCloseButton={props.isCloseButton} isMenuOpen={props.isMenuOpen} srcMenu={Menu} openMenu={props.openMenu} altMenu="Menu" 
                     onLoginPopup={props.onLoginPopup} isLoggedIn={props.isLoggedIn} src={Logout} srcBlack={LogoutBlack} 
                     alt="Logout" isMain={props.isMain} />
-                    {props.isMain ? <SearchForm handleSearchClick={props.handleSearchClick}/> : null}
+                    {props.isMain ? <SearchForm onSubmit={props.onSubmitSearch} handleSearchClick={props.handleSearchClick}/> : null}
                 </div>
                 {props.isMain ? <div className="main__preloader">
                     {props.isSearching ? <Preloader /> : null}

@@ -3,11 +3,6 @@ import ButtonMenu from '../ButtonMenu/ButtonMenu.js';
 import { NavLink } from 'react-router-dom';
 
 function Header (props) {
-
-    const console1 = () => {
-        console.log('123');
-    }
-
     return (
         <div className="header__container">
             <NavLink className={`header__main-link ${props.isMain ? '' : 'header__black'}`} to="/">NewsExplorer</NavLink>
