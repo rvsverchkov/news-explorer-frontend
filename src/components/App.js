@@ -3,19 +3,20 @@ import { Route, Switch } from 'react-router-dom';
 import Main from './Main/Main.js';
 import LoginPopup from './LoginPopup/LoginPopup.js';
 import RegisterPopup from './RegisterPopup/RegisterPopup.js';
-/*import * as token from '../utils/Token.js';
-import * as explorerAuth from '../utils/ExplorerAuth.js';*/
+import NewsApi from '../utils/NewsApi.js';
 import './App.css';
 
 function App() {
 
   const [isLoginPopupOpened, setLoginPopupOpened] = useState(false);
   const [isRegisterPopupOpened, setRegisterPopupOpened] = useState(false);
-  const [isSearching, setSearchingOn] = useState(false);
   const [isError, setError] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isCloseButton, setCloseButton] = useState(false);
+  const [resultCardsArray, setResultCardsArray] = useState([]);
+  const [isAlreadySearch, setAlreadySearch] = useState(false);
+  const [isSuccessSearch, setSuccessSearch] = useState(false);
 
   const closeAllPopups = () => {
     setLoginPopupOpened(false);
@@ -24,7 +25,18 @@ function App() {
 
   const onSubmitSearch = (e) => {
     e.preventDefault();
-    
+    setAlreadySearch(true);
+    setSuccessSearch(false);
+    NewsApi.getArticles()
+      .then((response) => {
+        console.log(response.articles);
+        setResultCardsArray(response.articles);
+        setSuccessSearch(true);
+        setAlreadySearch(false);
+      })
+      .catch(() => {
+        setError(true);
+      })
   }
 
   const handleLoginPopupClick = () => {
@@ -43,18 +55,6 @@ function App() {
     setLoggedIn(!isLoggedIn);
   }
 
-  const handleSearchClick = (e) => {
-    e.preventDefault();
-    setError(false);
-    setSearchingOn(!isSearching);
-    setTimeout(handleSearchErrorClick, 500);
-  }
-
-  const handleSearchErrorClick = () => {
-    setSearchingOn(false);
-    setError(true);
-  }
-
   const openMenu = () => {
     setMenuOpen(!isMenuOpen);
     setCloseButton(!isCloseButton);
@@ -71,10 +71,11 @@ function App() {
             isMenuOpen={isMenuOpen} 
             onLoginPopup={handleLoginPopupClick} 
             isLoggedIn={!isLoggedIn} 
-            handleSearchClick={handleSearchClick} 
-            isSearching={isSearching} 
             isError={isError} 
             onSubmitSearch={onSubmitSearch}
+            resultCardsArray={resultCardsArray}
+            isAlreadySearch={isAlreadySearch}
+            isSuccessSearch={isSuccessSearch}
           />
         </Route>
         <Route exact path="/saved-news">

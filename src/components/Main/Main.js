@@ -28,11 +28,13 @@ function Main (props) {
                     {props.isMain ? <SearchForm onSubmit={props.onSubmitSearch} handleSearchClick={props.handleSearchClick}/> : null}
                 </div>
                 {props.isMain ? <div className="main__preloader">
-                    {props.isSearching ? <Preloader /> : null}
+                    {props.isAlreadySearch ? <Preloader /> : null}
                     {props.isError ? <NotFound src={NotFoundImage} /> : null}
                 </div> : null}
                 <div className="main__results-background">
-                    {props.isMain ? <Results /> : null}
+                    {props.isSuccessSearch ? <Results
+                        resultCardsArray={props.resultCardsArray}
+                    /> : null}
                 </div>
                 <div className="main__saved">
                     {props.isMain ? null : <SavedNews />}
