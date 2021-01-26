@@ -23,11 +23,12 @@ function App() {
     setRegisterPopupOpened(false);
   }
 
-  const onSubmitSearch = (e) => {
+  const onSubmitSearch = (e, word) => {
     e.preventDefault();
+    setError(false);
     setAlreadySearch(true);
     setSuccessSearch(false);
-    NewsApi.getArticles()
+    NewsApi.getArticles(word)
       .then((response) => {
         console.log(response.articles);
         setResultCardsArray(response.articles);
@@ -36,6 +37,7 @@ function App() {
       })
       .catch(() => {
         setError(true);
+        setAlreadySearch(false);
       })
   }
 

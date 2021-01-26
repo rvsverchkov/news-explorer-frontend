@@ -5,8 +5,8 @@ class Api {
         this.country = country;
     }
 
-    getArticles() {
-        return fetch(`${this.baseUrl}=${this.country}&apiKey=${this.apiKey}`, {
+    getArticles(word) {
+        return fetch(`${this.baseUrl}q=${word}&sortBy=popularity&apiKey=${this.apiKey}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ class Api {
 }
 
 const api = new Api({
-    baseUrl: 'https://nomoreparties.co/news/v2/top-headlines?country',
+    baseUrl: 'https://nomoreparties.co/news/v2/everything?',
     apiKey: '0e69a0e6a9b4443180b894d7baa1b664',
     country: 'ru',
 })

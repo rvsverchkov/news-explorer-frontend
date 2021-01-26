@@ -1,13 +1,26 @@
+import { useState } from 'react';
 import './Search.css';
 
 function Search (props) {
+
+    const [word, setWord] = useState('');
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        props.onSubmit(e, word);
+    }
+
+    const wordChange = (e) => {
+        setWord(e.target.value);
+    }
+
     return (
         <div className="search__container">
             <h1 className="search__title">Что творится в мире?</h1>
             <p className="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете</p>
-            <form className="search__form" method='/' action='/' onSubmit={props.onSubmit}>
+            <form className="search__form" method='/' action='/' onSubmit={onSubmit}>
                 <div className="search__input-container">
-                    <input className="search__input" placeholder="Введите тему новости" required/>
+                    <input className="search__input" placeholder="Введите тему новости" onChange={wordChange} required/>
                 </div>
                 <div className="search__button-container">
                     <button type='submit' className="search__button">Искать</button>

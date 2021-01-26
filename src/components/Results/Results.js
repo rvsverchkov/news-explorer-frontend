@@ -6,10 +6,10 @@ function Results (props) {
         <div className="results__container">
             <h1 className="results__title">Результаты поиска</h1>
             <div className="results__grid">
-                {props.resultCardsArray.slice(0).reverse().map((card, i) =>
+                {props.resultCardsArray.slice(0, 3).reverse().map((card, i) =>
                     <NewsCard
                         src={card.urlToImage}
-                        alt={card.title}
+                        alt='Фотография'
                         date={card.publishedAt}
                         title={card.title}
                         text={card.description}
