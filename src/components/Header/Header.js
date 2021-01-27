@@ -13,7 +13,7 @@ function Header (props) {
                     <div className="header__auth-links">
                         <NavLink className={`${props.isMain ? 'header__button' : 'header__black-button'}`} to="/saved-news">Сохранённые статьи</NavLink>
                         <div className={`header__logout ${props.isMain ? '' : 'header__black-border'}`}>
-                            <p className={`header__logout-name ${props.isMain ? '' : 'header__black'}`}>Грета</p>
+                            <p onClick={props.handleLogout} className={`header__logout-name ${props.isMain ? '' : 'header__black'}`}>{props.name}</p>
                             {props.isMain ? <img src={props.src} alt={props.alt} className="header__logout-image"/> :
                             <img src={props.srcBlack} alt={props.alt} className="header__logout-image"/> }
                         </div>

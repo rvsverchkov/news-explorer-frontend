@@ -19,6 +19,16 @@ const validationSchema = Yup.object({
 
 function LoginPopup (props) {
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.handleLogin(formik.values.email, formik.values.password);
+        resetForm();
+    }
+
+    const resetForm = () => {
+        formik.handleReset();
+    }
+
     const formik = useFormik({
         initialValues,
         validationSchema,
@@ -30,12 +40,13 @@ function LoginPopup (props) {
             checkOpen={props.isOpen}
             title='Вход'
             name='login'
-            handleSubmit={props.handleLoggedInClick}
+            handleSubmit={handleSubmit}
             closePopup={props.onClose}
             isValid={!formik.isValid}
             submit='Войти'
             anotherAction='Зарегистрироваться'
             onAnotherAction={props.onRegisterPopup}
+            resetForm={resetForm}
         >
             <p className='popup__input-title'>Email</p>
             <input

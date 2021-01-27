@@ -22,9 +22,21 @@ function Main (props) {
         <main>
             <div className="main">
                 <div className={`${props.isMain ? 'main__header-background' : ''}`}>
-                    <Header CloseButton={CloseButton} isCloseButton={props.isCloseButton} isMenuOpen={props.isMenuOpen} srcMenu={Menu} openMenu={props.openMenu} altMenu="Menu" 
-                    onLoginPopup={props.onLoginPopup} isLoggedIn={props.isLoggedIn} src={Logout} srcBlack={LogoutBlack} 
-                    alt="Logout" isMain={props.isMain} />
+                    <Header 
+                        CloseButton={CloseButton} 
+                        isCloseButton={props.isCloseButton} 
+                        isMenuOpen={props.isMenuOpen} 
+                        srcMenu={Menu} 
+                        openMenu={props.openMenu} 
+                        altMenu="Menu" 
+                        onLoginPopup={props.onLoginPopup} 
+                        isLoggedIn={props.isLoggedIn} 
+                        src={Logout} srcBlack={LogoutBlack} 
+                        alt="Logout" 
+                        isMain={props.isMain}
+                        name={props.name}
+                        handleLogout={props.handleLogout}
+                    />
                     {props.isMain ? <SearchForm onSubmit={props.onSubmitSearch} handleSearchClick={props.handleSearchClick}/> : null}
                 </div>
                 {props.isMain ? <div className="main__preloader">

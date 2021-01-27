@@ -24,12 +24,17 @@ function RegisterPopup (props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         props.handleRegister(formik.values.email, formik.values.password, formik.values.name);
+        resetForm();
+    }
+
+    const resetForm = () => {
+        formik.handleReset();
     }
 
     const formik = useFormik({
         initialValues,
         validationSchema,
-        validateOnMount
+        validateOnMount,
     })
 
     return (
@@ -44,6 +49,7 @@ function RegisterPopup (props) {
             submit='Зарегистрироваться'
             anotherAction='Войти'
             onAnotherAction={props.onLoginPopup}
+            resetForm={resetForm}
         >
             <p className='popup__input-title'>Email</p>
             <input
