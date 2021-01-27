@@ -5,6 +5,7 @@ import LoginPopup from './LoginPopup/LoginPopup.js';
 import RegisterPopup from './RegisterPopup/RegisterPopup.js';
 import PopupWithForm from './PopupWithForm/PopupWithForm.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
+import ProtectedRoute from './ProtectedRoute/ProtectedRoute.js';
 import NewsApi from '../utils/NewsApi.js';
 import * as explorerAuth from '../utils/ExplorerAuth.js';
 import * as token from '../utils/Token.js';
@@ -163,9 +164,11 @@ function App() {
               handleLogout={handleLogout}
             />
           </Route>
-          <Route exact path="/saved-news">
-            <Main />
-          </Route>
+          <ProtectedRoute
+            path="/saved-news"
+            isLoggedIn={!isLoggedIn}
+            component={Main}
+          />
         </Switch>
         <LoginPopup 
           isOpen={isLoginPopupOpened} 
