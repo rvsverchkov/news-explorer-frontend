@@ -4,6 +4,7 @@ import Main from './Main/Main.js';
 import LoginPopup from './LoginPopup/LoginPopup.js';
 import RegisterPopup from './RegisterPopup/RegisterPopup.js';
 import NewsApi from '../utils/NewsApi.js';
+import * as explorerAuth from '../utils/ExplorerAuth.js';
 import './App.css';
 
 function App() {
@@ -19,6 +20,13 @@ function App() {
   const [isSuccessSearch, setSuccessSearch] = useState(false);
   const [isNotFound, setNotFound] = useState(false);
   const [rowOfCards, setRowOfCards] = useState(1);
+
+  const handleRegister = (email, password, name) => {
+    explorerAuth.register(email, password, name)
+      .then((response) => {
+        console.log(response);
+      })
+  }
 
   const showMoreCards = () => {
     setRowOfCards(rowOfCards + 1);
@@ -99,8 +107,19 @@ function App() {
           <Main />
         </Route>
       </Switch>
-      <LoginPopup isOpen={isLoginPopupOpened} onClose={closeAllPopups} onRegisterPopup={handleRegisterPopupClick} handleLoggedInClick={handleLoggedInClick} />
-      <RegisterPopup isOpen={isRegisterPopupOpened} onClose={closeAllPopups} onLoginPopup={handleLoginPopupClick} handleLoggedInClick={handleLoggedInClick} />
+      <LoginPopup 
+        isOpen={isLoginPopupOpened} 
+        onClose={closeAllPopups} 
+        onRegisterPopup={handleRegisterPopupClick} 
+        handleLoggedInClick={handleLoggedInClick} 
+      />
+      <RegisterPopup 
+        isOpen={isRegisterPopupOpened} 
+        onClose={closeAllPopups} 
+        onLoginPopup={handleLoginPopupClick} 
+        handleLoggedInClick={handleLoggedInClick}
+        handleRegister={handleRegister}
+      />
     </div>
   );
 }
