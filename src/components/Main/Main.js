@@ -29,12 +29,14 @@ function Main (props) {
                 </div>
                 {props.isMain ? <div className="main__preloader">
                     {props.isAlreadySearch ? <Preloader /> : null}
-                    {props.isError ? <NotFound src={NotFoundImage} /> : null}
                 </div> : null}
                 <div className="main__results-background">
                     {props.isSuccessSearch ? <Results
                         resultCardsArray={props.resultCardsArray}
+                        showMoreCards={props.showMoreCards}
+                        rowOfCards={props.rowOfCards}
                     /> : null}
+                    {props.isNotFound ? <NotFound src={NotFoundImage} /> : null}
                 </div>
                 <div className="main__saved">
                     {props.isMain ? null : <SavedNews />}

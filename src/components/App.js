@@ -17,6 +17,12 @@ function App() {
   const [resultCardsArray, setResultCardsArray] = useState([]);
   const [isAlreadySearch, setAlreadySearch] = useState(false);
   const [isSuccessSearch, setSuccessSearch] = useState(false);
+  const [isNotFound, setNotFound] = useState(false);
+  const [rowOfCards, setRowOfCards] = useState(1);
+
+  const showMoreCards = () => {
+    setRowOfCards(rowOfCards + 1);
+  }
 
   const closeAllPopups = () => {
     setLoginPopupOpened(false);
@@ -28,12 +34,18 @@ function App() {
     setError(false);
     setAlreadySearch(true);
     setSuccessSearch(false);
+    setNotFound(false);
     NewsApi.getArticles(word)
       .then((response) => {
-        console.log(response.articles);
-        setResultCardsArray(response.articles);
-        setSuccessSearch(true);
-        setAlreadySearch(false);
+        if (response.articles.length !== 0) {
+          console.log(response.articles.length);
+          setResultCardsArray(response.articles);
+          setSuccessSearch(true);
+          setAlreadySearch(false);
+        } else {
+          setAlreadySearch(false);
+          setNotFound(true);
+        }
       })
       .catch(() => {
         setError(true);
@@ -78,6 +90,9 @@ function App() {
             resultCardsArray={resultCardsArray}
             isAlreadySearch={isAlreadySearch}
             isSuccessSearch={isSuccessSearch}
+            isNotFound={isNotFound}
+            showMoreCards={showMoreCards}
+            rowOfCards={rowOfCards}
           />
         </Route>
         <Route exact path="/saved-news">
