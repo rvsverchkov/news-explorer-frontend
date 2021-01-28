@@ -36,6 +36,7 @@ function Main (props) {
                         isMain={props.isMain}
                         name={props.name}
                         handleLogout={props.handleLogout}
+                        getSavedCards={props.getSavedCards}
                     />
                     {props.isMain ? <SearchForm onSubmit={props.onSubmitSearch} handleSearchClick={props.handleSearchClick}/> : null}
                 </div>
@@ -43,18 +44,27 @@ function Main (props) {
                     {props.isAlreadySearch ? <Preloader /> : null}
                 </div> : null}
                 <div className="main__results-background">
-                    {props.isSuccessSearch ? <Results
+                    {props.isSuccessSearch ? 
+                    <Results
                         resultCardsArray={props.resultCardsArray}
                         showMoreCards={props.showMoreCards}
                         rowOfCards={props.rowOfCards}
+                        isLoggedIn={!props.isLoggedIn}
+                        handleSaveCard={props.handleSaveCard}
                     /> : null}
                     {props.isNotFound ? <NotFound src={NotFoundImage} /> : null}
                 </div>
                 <div className="main__saved">
-                    {props.isMain ? null : <SavedNews />}
+                    {props.isMain ? null : 
+                    <SavedNews 
+                        name={props.name}
+                    />}
                 </div>
                 <div className="main__saved-grid">
-                    {props.isMain ? null : <SavedNewsGrid />}
+                    {props.isMain ? null : 
+                    <SavedNewsGrid 
+                        savedCardsArray={props.savedCardsArray}
+                    />}
                 </div>
                 <div className="main__about-background">
                     {props.isMain ? <About

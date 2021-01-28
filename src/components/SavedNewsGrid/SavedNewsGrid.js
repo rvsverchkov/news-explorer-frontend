@@ -7,58 +7,22 @@ import Taiga from '../../images/taiga.png';
 function SavedNewsGrid (props) {
     return (
         <div className="saved__grid">
-                <NewsCard 
-                    src={Park}
-                    alt='Парк'
-                    date='2 августа, 2019'
-                    title='Национальное достояние - парки'
-                    text='В 2016 году Америка отмечала важный юбилей: 
-                    сто лет назад здесь начала складываться система национальных парков 
-                    – охраняемых территорий, где и сегодня каждый может приобщиться к природе.'
-                    href='https://lenta.ru/'
-                    source='ДЗЕН'
-                />
-                <NewsCard 
-                    src={Forest}
-                    alt='Лесные огоньки'
-                    date='2 августа, 2019'
-                    title='Лесные огоньки: история одной фотографии'
-                    text='Фотограф отвлеклась от освещения суровой политической реальности Мексики, 
-                    чтобы запечатлеть ускользающую красоту одного из местных чудес природы.'
-                    href='https://meduza.io/'
-                    source='АФИША'
-                />
-                <NewsCard 
-                    src={Taiga}
-                    alt='Парк'
-                    date='2 августа, 2019'
-                    title='«Первозданная тайга»: новый фотопроект Игоря'
-                    text='Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о 
-                    необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...'
-                    href='https://lenta.ru/'
-                    source='МЕДИАЗОНА'
-                />
-                <NewsCard 
-                    src={Park}
-                    alt='Парк'
-                    date='2 августа, 2019'
-                    title='Национальное достояние - парки'
-                    text='В 2016 году Америка отмечала важный юбилей: 
-                    сто лет назад здесь начала складываться система национальных парков 
-                    – охраняемых территорий, где и сегодня каждый может приобщиться к природе.'
-                    href='https://lenta.ru/'
-                    source='ДЗЕН'
-                />
-                <NewsCard 
-                    src={Forest}
-                    alt='Лесные огоньки'
-                    date='2 августа, 2019'
-                    title='Лесные огоньки: история одной фотографии'
-                    text='Фотограф отвлеклась от освещения суровой политической реальности Мексики, 
-                    чтобы запечатлеть ускользающую красоту одного из местных чудес природы.'
-                    href='https://meduza.io/'
-                    source='АФИША'
-                />
+                {props.savedCardsArray.slice(0).reverse().map((card, i) =>
+                    <NewsCard
+                        src={card.image}
+                        alt='Фотография'
+                        key={i}
+                        date={card.date}
+                        currentCard={card}
+                        title={card.title}
+                        text={card.text}
+                        href={card.link}
+                        source={card.source}
+                        bookmark={props.bookmark}
+                        isLoggedIn={props.isLoggedIn}
+                        handleSaveCard={props.handleSaveCard}
+                    />
+                )}
         </div>
     )
 }

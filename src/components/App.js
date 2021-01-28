@@ -8,6 +8,7 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute.js';
 import NewsApi from '../utils/NewsApi.js';
 import * as explorerAuth from '../utils/ExplorerAuth.js';
+import * as mainApi from '../utils/MainApi.js';
 import * as token from '../utils/Token.js';
 import './App.css';
 
@@ -26,11 +27,22 @@ function App() {
   const [isNotFound, setNotFound] = useState(false);
   const [rowOfCards, setRowOfCards] = useState(1);
   const [isSuccessRegistration, setSuccessRegistration] = useState(false);
+  const [savedCardsArray, setSavedCardsArray] = useState([]);
+  const [searchWord, setSearchWord] = useState('');
   const [userData, setUserData] = useState({ id: '', email: '', name: '' });
   const [currentUser, setCurrentUser] = useState({
     name: '',
     email: ''
   })
+
+  const getSavedCards = () => {
+    const jwt = token.getToken();
+    mainApi.getSavedCards(jwt)
+      .then((response) => {
+        console.log(response);
+        setSavedCardsArray(response);
+      })
+  }
 
   const handleRegister = (email, password, name) => {
     explorerAuth.register(email, password, name)
@@ -59,6 +71,23 @@ function App() {
   const handleLogout = () => {
     token.removeToken();
     setLoggedIn(false);
+  }
+
+  const handleSaveCard = (currentCard) => {
+    const jwt = token.getToken();
+    mainApi.saveCurrentCard(
+      searchWord,
+      currentCard.title,
+      currentCard.description,
+      currentCard.publishedAt,
+      currentCard.source.name,
+      currentCard.url,
+      currentCard.urlToImage,
+      jwt
+    )
+      .then((response) => {
+        console.log(response)
+      })
   }
 
   const tokenCheck = () => {
@@ -95,9 +124,11 @@ function App() {
     setAlreadySearch(true);
     setSuccessSearch(false);
     setNotFound(false);
+    setSearchWord('');
     NewsApi.getArticles(word)
       .then((response) => {
         if (response.articles.length !== 0) {
+          setSearchWord(word);
           console.log(response.articles.length);
           setResultCardsArray(response.articles);
           setSuccessSearch(true);
@@ -162,12 +193,17 @@ function App() {
               rowOfCards={rowOfCards}
               name={userData.name}
               handleLogout={handleLogout}
+              handleSaveCard={handleSaveCard}
+              getSavedCards={getSavedCards}
             />
           </Route>
           <ProtectedRoute
             path="/saved-news"
             isLoggedIn={!isLoggedIn}
             component={Main}
+            name={userData.name}
+            handleLogout={handleLogout}
+            savedCardsArray={savedCardsArray}
           />
         </Switch>
         <LoginPopup 

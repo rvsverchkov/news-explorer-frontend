@@ -15,10 +15,14 @@ function Results (props) {
                         alt='Фотография'
                         key={i}
                         date={card.publishedAt}
+                        currentCard={card}
                         title={card.title}
                         text={card.description}
                         href={card.url}
                         source={card.source.name}
+                        bookmark={props.bookmark}
+                        isLoggedIn={props.isLoggedIn}
+                        handleSaveCard={props.handleSaveCard}
                     />
                 )}
             </div>
