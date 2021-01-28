@@ -51,6 +51,7 @@ function Main (props) {
                         rowOfCards={props.rowOfCards}
                         isLoggedIn={!props.isLoggedIn}
                         handleSaveCard={props.handleSaveCard}
+                        currentPath={props.currentPath}
                     /> : null}
                     {props.isNotFound ? <NotFound src={NotFoundImage} /> : null}
                 </div>
@@ -58,12 +59,16 @@ function Main (props) {
                     {props.isMain ? null : 
                     <SavedNews 
                         name={props.name}
+                        currentPath={props.currentPath}
+                        handleDeleteCard={props.handleDeleteCard}
                     />}
                 </div>
                 <div className="main__saved-grid">
                     {props.isMain ? null : 
                     <SavedNewsGrid 
                         savedCardsArray={props.savedCardsArray}
+                        currentPath={props.currentPath}
+                        handleDeleteCard={props.handleDeleteCard}
                     />}
                 </div>
                 <div className="main__about-background">

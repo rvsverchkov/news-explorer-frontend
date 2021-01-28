@@ -23,6 +23,7 @@ function Results (props) {
                         bookmark={props.bookmark}
                         isLoggedIn={props.isLoggedIn}
                         handleSaveCard={props.handleSaveCard}
+                        currentPath={props.currentPath}
                     />
                 )}
             </div>

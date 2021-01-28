@@ -1,8 +1,5 @@
 import './SavedNewsGrid.css';
 import NewsCard from '../NewsCard/NewsCard.js';
-import Forest from '../../images/forest.png';
-import Park from '../../images/park.png';
-import Taiga from '../../images/taiga.png';
 
 function SavedNewsGrid (props) {
     return (
@@ -21,6 +18,8 @@ function SavedNewsGrid (props) {
                         bookmark={props.bookmark}
                         isLoggedIn={props.isLoggedIn}
                         handleSaveCard={props.handleSaveCard}
+                        currentPath={props.currentPath}
+                        handleDeleteCard={props.handleDeleteCard}
                     />
                 )}
         </div>

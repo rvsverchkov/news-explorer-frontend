@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch, useLocation, useHistory } from 'react-router-dom';
 import Main from './Main/Main.js';
 import LoginPopup from './LoginPopup/LoginPopup.js';
 import RegisterPopup from './RegisterPopup/RegisterPopup.js';
@@ -15,6 +15,7 @@ import './App.css';
 function App() {
 
   const history = useHistory();
+  const currentPath = useLocation();
   const [isLoginPopupOpened, setLoginPopupOpened] = useState(false);
   const [isRegisterPopupOpened, setRegisterPopupOpened] = useState(false);
   const [isError, setError] = useState(false);
@@ -87,6 +88,18 @@ function App() {
     )
       .then((response) => {
         console.log(response)
+      })
+  }
+
+  const handleDeleteCard = (currentCard) => {
+    const jwt = token.getToken();
+    const cardId = currentCard._id;
+    mainApi.deleteCurrentCard(
+      cardId, jwt
+    )
+      .then((response) => {
+        console.log(response)
+        getSavedCards();
       })
   }
 
@@ -195,6 +208,8 @@ function App() {
               handleLogout={handleLogout}
               handleSaveCard={handleSaveCard}
               getSavedCards={getSavedCards}
+              currentPath={currentPath}
+              handleDeleteCard={handleDeleteCard}
             />
           </Route>
           <ProtectedRoute
@@ -204,6 +219,8 @@ function App() {
             name={userData.name}
             handleLogout={handleLogout}
             savedCardsArray={savedCardsArray}
+            currentPath={currentPath}
+            handleDeleteCard={handleDeleteCard}
           />
         </Switch>
         <LoginPopup 

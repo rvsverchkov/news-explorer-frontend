@@ -6,8 +6,12 @@ function NewsCard (props) {
         props.handleSaveCard(props.currentCard);
     }
 
+    const deleteCard = () => {
+        props.handleDeleteCard(props.currentCard);
+    }
+
     const showActionButton = () => {
-        if (!props.isLoggedIn) {
+        if (!props.isLoggedIn && props.currentPath.pathname === '/') {
             return (
                 <>
                     <button className="card__action-button" alt='Картинка' onClick={props.action}/>
@@ -17,10 +21,20 @@ function NewsCard (props) {
                 </>
             )
         }
-        if (props.isLoggedIn) {
+        if (props.isLoggedIn && props.currentPath.pathname === '/') {
             return (
                 <>
                     <button className="card__action-button" alt='Картинка' onClick={saveCard}/>
+                </>
+            )
+        }
+        if (props.currentPath.pathname === '/saved-news') {
+            return (
+                <>
+                    <button className="card__action-button-delete" alt='Картинка' onClick={deleteCard}/>
+                    <div className="card__action-error">
+                        <p className="card__action-description">Убрать из сохранённых</p>
+                    </div>
                 </>
             )
         }

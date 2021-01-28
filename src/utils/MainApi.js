@@ -21,6 +21,24 @@ export const saveCurrentCard = (keyword, title, text, date, source, link, image,
     })
 }
 
+export const deleteCurrentCard = (cardId, jwt) => {
+    return fetch(`${BASE_URL}/articles/${cardId}`, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${jwt}`
+        },
+        body: JSON.stringify({cardId})
+    })
+    .then((response) => {
+        if (!response.ok) {
+            return Promise.reject(`Ошибка: ${response.status}`);
+        }
+        return response.json();
+    })
+}
+
 export const getSavedCards = (jwt) => {
     return fetch(`${BASE_URL}/articles`, {
         method: 'GET',
@@ -31,7 +49,7 @@ export const getSavedCards = (jwt) => {
         },
     })
     .then((response) => {
-        if(!response.ok) {
+        if (!response.ok) {
             return Promise.reject(`Ошибка: ${response.status}`);
         }
         return response.json();
