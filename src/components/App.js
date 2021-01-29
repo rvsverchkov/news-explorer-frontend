@@ -16,6 +16,7 @@ function App() {
 
   const history = useHistory();
   const currentPath = useLocation();
+  const localStorageArray = JSON.parse(localStorage.getItem('results'));
   const [isLoginPopupOpened, setLoginPopupOpened] = useState(false);
   const [isRegisterPopupOpened, setRegisterPopupOpened] = useState(false);
   const [isError, setError] = useState(false);
@@ -25,6 +26,8 @@ function App() {
   const [resultCardsArray, setResultCardsArray] = useState([]);
   const [isAlreadySearch, setAlreadySearch] = useState(false);
   const [isSuccessSearch, setSuccessSearch] = useState(false);
+  const [isActiveHistory, setActiveHistory] = useState(false);
+  const [isShowResults, setShowResults] = useState(false);
   const [isNotFound, setNotFound] = useState(false);
   const [rowOfCards, setRowOfCards] = useState(1);
   const [isSuccessRegistration, setSuccessRegistration] = useState(false);
@@ -71,10 +74,13 @@ function App() {
 
   const handleLogout = () => {
     token.removeToken();
+    //localStorage.removeItem('results');
     setLoggedIn(false);
   }
 
   const handleSaveCard = (currentCard) => {
+    tokenCheck();
+    getSavedCards();
     const jwt = token.getToken();
     mainApi.saveCurrentCard(
       searchWord,
@@ -91,6 +97,17 @@ function App() {
       })
   }
 
+  const checkStorage = () => {
+    if (localStorageArray !== null && isSuccessSearch === false) {
+      setShowResults(true);
+      setActiveHistory(true);
+    }
+    if (localStorageArray !== null && isSuccessSearch === true) {
+      setShowResults(true);
+      setActiveHistory(false);
+    }
+  }
+
   const handleDeleteCard = (currentCard) => {
     const jwt = token.getToken();
     const cardId = currentCard._id;
@@ -104,7 +121,10 @@ function App() {
   }
 
   const tokenCheck = () => {
+    getSavedCards();
+    checkStorage();
     const jwt = token.getToken();
+    console.log(localStorageArray)
     if (!jwt) {
       return;
     }
@@ -141,13 +161,19 @@ function App() {
     NewsApi.getArticles(word)
       .then((response) => {
         if (response.articles.length !== 0) {
+          setShowResults(true);
+          setActiveHistory(false);
           setSearchWord(word);
           console.log(response.articles.length);
           setResultCardsArray(response.articles);
+          localStorage.setItem('results', JSON.stringify(response.articles));
           setSuccessSearch(true);
           setAlreadySearch(false);
         } else {
           setAlreadySearch(false);
+          setActiveHistory(false);
+          setSuccessSearch(false);
+          setShowResults(false)
           setNotFound(true);
         }
       })
@@ -210,6 +236,10 @@ function App() {
               getSavedCards={getSavedCards}
               currentPath={currentPath}
               handleDeleteCard={handleDeleteCard}
+              isActiveHistory={isActiveHistory}
+              localStorageArray={localStorageArray}
+              isShowResults={isShowResults}
+              savedCardsArray={savedCardsArray}
             />
           </Route>
           <ProtectedRoute

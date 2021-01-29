@@ -24,7 +24,12 @@ function NewsCard (props) {
         if (props.isLoggedIn && props.currentPath.pathname === '/') {
             return (
                 <>
-                    <button className="card__action-button" alt='Картинка' onClick={saveCard}/>
+                    <button className={
+                        `${(props.savedCardsArray.some((currentCard) =>
+                            currentCard.text === props.text
+                        )) ? 
+                        'card__action-button-saved' : 'card__action-button'}`
+                    } alt='Картинка' onClick={saveCard}/>
                 </>
             )
         }

@@ -49,6 +49,24 @@
     cursor: pointer;
 }
 
+.card__action-button-saved {
+    background-image: url('../../images/bookmark-saved.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 20px;
+    height: 26px;
+    border: none;
+    background-color: white;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    outline: none;
+    text-decoration: none;
+    transition: all .2s ease;
+}
+
 .card__action-button-delete {
     background-image: url('../../images/trash.svg');
     background-repeat: no-repeat;

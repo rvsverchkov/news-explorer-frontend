@@ -44,14 +44,15 @@ function Main (props) {
                     {props.isAlreadySearch ? <Preloader /> : null}
                 </div> : null}
                 <div className="main__results-background">
-                    {props.isSuccessSearch ? 
+                    {props.isShowResults ? 
                     <Results
-                        resultCardsArray={props.resultCardsArray}
+                        resultCardsArray={props.isActiveHistory ? props.localStorageArray : props.resultCardsArray}
                         showMoreCards={props.showMoreCards}
                         rowOfCards={props.rowOfCards}
                         isLoggedIn={!props.isLoggedIn}
                         handleSaveCard={props.handleSaveCard}
                         currentPath={props.currentPath}
+                        savedCardsArray={props.savedCardsArray}
                     /> : null}
                     {props.isNotFound ? <NotFound src={NotFoundImage} /> : null}
                 </div>

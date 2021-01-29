@@ -24,6 +24,7 @@ function Results (props) {
                         isLoggedIn={props.isLoggedIn}
                         handleSaveCard={props.handleSaveCard}
                         currentPath={props.currentPath}
+                        savedCardsArray={props.savedCardsArray}
                     />
                 )}
             </div>
