@@ -2,6 +2,15 @@ import './NewsCard.css';
 
 function NewsCard (props) {
 
+    const getDate = () => {
+        const date = new Date(props.date);
+        return date.toLocaleString('ru', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        })
+    }
+
     const saveCard = () => {
         props.handleSaveCard(props.currentCard);
     }
@@ -58,7 +67,7 @@ function NewsCard (props) {
             </div>
             <div className="card__background">
                 <div className="card__text-container">
-                    <p className="card__date">{props.date}</p>
+                    <p className="card__date">{getDate()}</p>
                     <h2 className="card__title">{props.title}</h2>
                     <p className="card__text">{props.text}</p>
                 </div>
