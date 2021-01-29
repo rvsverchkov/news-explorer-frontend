@@ -32,7 +32,6 @@ function App() {
   const [rowOfCards, setRowOfCards] = useState(1);
   const [isSuccessRegistration, setSuccessRegistration] = useState(false);
   const [savedCardsArray, setSavedCardsArray] = useState([]);
-  const [searchWord, setSearchWord] = useState('');
   const [userData, setUserData] = useState({ id: '', email: '', name: '' });
   const [currentUser, setCurrentUser] = useState({
     name: '',
@@ -83,7 +82,7 @@ function App() {
     getSavedCards();
     const jwt = token.getToken();
     mainApi.saveCurrentCard(
-      searchWord,
+      localStorage.getItem('word'),
       currentCard.title,
       currentCard.description,
       currentCard.publishedAt,
@@ -157,16 +156,15 @@ function App() {
     setAlreadySearch(true);
     setSuccessSearch(false);
     setNotFound(false);
-    setSearchWord('');
     NewsApi.getArticles(word)
       .then((response) => {
         if (response.articles.length !== 0) {
           setShowResults(true);
           setActiveHistory(false);
-          setSearchWord(word);
           console.log(response.articles.length);
           setResultCardsArray(response.articles);
           localStorage.setItem('results', JSON.stringify(response.articles));
+          localStorage.setItem('word', word);
           setSuccessSearch(true);
           setAlreadySearch(false);
         } else {
