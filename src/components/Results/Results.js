@@ -25,6 +25,7 @@ function Results (props) {
                         handleSaveCard={props.handleSaveCard}
                         currentPath={props.currentPath}
                         savedCardsArray={props.savedCardsArray}
+                        action={props.action}
                     />
                 )}
             </div>

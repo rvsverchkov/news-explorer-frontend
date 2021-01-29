@@ -4,6 +4,18 @@
     padding-top: 64px;
 }
 
+.saved__grid-error {
+    text-align: center;
+    padding-top: 90px;
+    max-width: 390px;
+    margin: 0 auto;
+    padding-bottom: 90px;
+    font-family: 'Robotoslab-regular';
+    font-size: 20px;
+    line-height: 46px;
+    font-weight: 400;
+}
+
 @media screen and (max-width: 500px) {
     .saved__grid {
         grid-template-columns: repeat(auto-fill, 288px);

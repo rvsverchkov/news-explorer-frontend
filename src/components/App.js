@@ -238,6 +238,7 @@ function App() {
               localStorageArray={localStorageArray}
               isShowResults={isShowResults}
               savedCardsArray={savedCardsArray}
+              action={handleRegisterPopupClick}
             />
           </Route>
           <ProtectedRoute

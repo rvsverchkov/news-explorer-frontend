@@ -36,6 +36,9 @@ function NewsCard (props) {
         if (props.currentPath.pathname === '/saved-news') {
             return (
                 <>
+                    <div className="card__keyword-container">
+                        <p className="card__keyword">{props.keyword}</p>
+                    </div>
                     <button className="card__action-button-delete" alt='Картинка' onClick={deleteCard}/>
                     <div className="card__action-error">
                         <p className="card__action-description">Убрать из сохранённых</p>

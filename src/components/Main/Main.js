@@ -53,6 +53,7 @@ function Main (props) {
                         handleSaveCard={props.handleSaveCard}
                         currentPath={props.currentPath}
                         savedCardsArray={props.savedCardsArray}
+                        action={props.action}
                     /> : null}
                     {props.isNotFound ? <NotFound src={NotFoundImage} /> : null}
                 </div>
@@ -62,6 +63,9 @@ function Main (props) {
                         name={props.name}
                         currentPath={props.currentPath}
                         handleDeleteCard={props.handleDeleteCard}
+                        savedCardsArray={props.savedCardsArray}
+                        firstWord={props.firstWord}
+                        secondWord={props.secondWord}
                     />}
                 </div>
                 <div className="main__saved-grid">
