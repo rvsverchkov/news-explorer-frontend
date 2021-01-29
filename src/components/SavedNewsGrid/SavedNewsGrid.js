@@ -1,65 +1,47 @@
 import './SavedNewsGrid.css';
 import NewsCard from '../NewsCard/NewsCard.js';
-import Forest from '../../images/forest.png';
-import Park from '../../images/park.png';
-import Taiga from '../../images/taiga.png';
 
 function SavedNewsGrid (props) {
+
+    const showError = () => {
+        if (props.savedCardsArray.length !== 0) {
+            return(
+                <>
+                    <div className="saved__grid">
+                        {props.savedCardsArray.slice(0).reverse().map((card, i) =>
+                            <NewsCard
+                                src={card.image}
+                                alt='Фотография'
+                                key={i}
+                                date={card.date}
+                                currentCard={card}
+                                title={card.title}
+                                text={card.text}
+                                href={card.link}
+                                keyword={card.keyword}
+                                source={card.source}
+                                bookmark={props.bookmark}
+                                isLoggedIn={props.isLoggedIn}
+                                handleSaveCard={props.handleSaveCard}
+                                currentPath={props.currentPath}
+                                handleDeleteCard={props.handleDeleteCard}
+                            />
+                        )}
+                    </div>
+                </>
+            )
+        }
+        if (props.savedCardsArray.length === 0) {
+            return(
+                <p className="saved__grid-error">Здесь пока что ничего нет, сохраните понравившиеся вам статьи, и они отобразятся здесь</p>
+            )
+        }
+    }
+
     return (
-        <div className="saved__grid">
-                <NewsCard 
-                    src={Park}
-                    alt='Парк'
-                    date='2 августа, 2019'
-                    title='Национальное достояние - парки'
-                    text='В 2016 году Америка отмечала важный юбилей: 
-                    сто лет назад здесь начала складываться система национальных парков 
-                    – охраняемых территорий, где и сегодня каждый может приобщиться к природе.'
-                    href='https://lenta.ru/'
-                    source='ДЗЕН'
-                />
-                <NewsCard 
-                    src={Forest}
-                    alt='Лесные огоньки'
-                    date='2 августа, 2019'
-                    title='Лесные огоньки: история одной фотографии'
-                    text='Фотограф отвлеклась от освещения суровой политической реальности Мексики, 
-                    чтобы запечатлеть ускользающую красоту одного из местных чудес природы.'
-                    href='https://meduza.io/'
-                    source='АФИША'
-                />
-                <NewsCard 
-                    src={Taiga}
-                    alt='Парк'
-                    date='2 августа, 2019'
-                    title='«Первозданная тайга»: новый фотопроект Игоря'
-                    text='Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о 
-                    необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...'
-                    href='https://lenta.ru/'
-                    source='МЕДИАЗОНА'
-                />
-                <NewsCard 
-                    src={Park}
-                    alt='Парк'
-                    date='2 августа, 2019'
-                    title='Национальное достояние - парки'
-                    text='В 2016 году Америка отмечала важный юбилей: 
-                    сто лет назад здесь начала складываться система национальных парков 
-                    – охраняемых территорий, где и сегодня каждый может приобщиться к природе.'
-                    href='https://lenta.ru/'
-                    source='ДЗЕН'
-                />
-                <NewsCard 
-                    src={Forest}
-                    alt='Лесные огоньки'
-                    date='2 августа, 2019'
-                    title='Лесные огоньки: история одной фотографии'
-                    text='Фотограф отвлеклась от освещения суровой политической реальности Мексики, 
-                    чтобы запечатлеть ускользающую красоту одного из местных чудес природы.'
-                    href='https://meduza.io/'
-                    source='АФИША'
-                />
-        </div>
+            <>
+                {showError()}
+            </>
     )
 }
 

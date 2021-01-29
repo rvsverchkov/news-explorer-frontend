@@ -37,14 +37,16 @@
 }
 
 .search__input {
-    height: 22px;
     margin-left: 24px;
     border: none;
     outline: none;
     font-size: 16px;
     line-height: 22px;
-    margin-right: 40px;
-    width: 60%;
+    width: 100%;
+}
+
+.search__input-container {
+    width: 50%;
 }
 
 .search__button {

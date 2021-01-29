@@ -22,23 +22,59 @@ function Main (props) {
         <main>
             <div className="main">
                 <div className={`${props.isMain ? 'main__header-background' : ''}`}>
-                    <Header CloseButton={CloseButton} isCloseButton={props.isCloseButton} isMenuOpen={props.isMenuOpen} srcMenu={Menu} openMenu={props.openMenu} altMenu="Menu" 
-                    onLoginPopup={props.onLoginPopup} isLoggedIn={props.isLoggedIn} src={Logout} srcBlack={LogoutBlack} 
-                    alt="Logout" isMain={props.isMain} />
-                    {props.isMain ? <SearchForm handleSearchClick={props.handleSearchClick}/> : null}
+                    <Header 
+                        CloseButton={CloseButton} 
+                        isCloseButton={props.isCloseButton} 
+                        isMenuOpen={props.isMenuOpen} 
+                        srcMenu={Menu} 
+                        openMenu={props.openMenu} 
+                        altMenu="Menu" 
+                        onLoginPopup={props.onLoginPopup} 
+                        isLoggedIn={props.isLoggedIn} 
+                        src={Logout} srcBlack={LogoutBlack} 
+                        alt="Logout" 
+                        isMain={props.isMain}
+                        name={props.name}
+                        handleLogout={props.handleLogout}
+                        getSavedCards={props.getSavedCards}
+                    />
+                    {props.isMain ? <SearchForm onSubmit={props.onSubmitSearch} handleSearchClick={props.handleSearchClick}/> : null}
                 </div>
                 {props.isMain ? <div className="main__preloader">
-                    {props.isSearching ? <Preloader /> : null}
-                    {props.isError ? <NotFound src={NotFoundImage} /> : null}
+                    {props.isAlreadySearch ? <Preloader /> : null}
                 </div> : null}
                 <div className="main__results-background">
-                    {props.isMain ? <Results /> : null}
+                    {props.isShowResults ? 
+                    <Results
+                        resultCardsArray={props.isActiveHistory ? props.localStorageArray : props.resultCardsArray}
+                        showMoreCards={props.showMoreCards}
+                        rowOfCards={props.rowOfCards}
+                        isLoggedIn={!props.isLoggedIn}
+                        handleSaveCard={props.handleSaveCard}
+                        currentPath={props.currentPath}
+                        savedCardsArray={props.savedCardsArray}
+                        action={props.action}
+                    /> : null}
+                    {props.isNotFound ? <NotFound src={NotFoundImage} /> : null}
                 </div>
                 <div className="main__saved">
-                    {props.isMain ? null : <SavedNews />}
+                    {props.isMain ? null : 
+                    <SavedNews 
+                        name={props.name}
+                        currentPath={props.currentPath}
+                        handleDeleteCard={props.handleDeleteCard}
+                        savedCardsArray={props.savedCardsArray}
+                        firstWord={props.firstWord}
+                        secondWord={props.secondWord}
+                    />}
                 </div>
                 <div className="main__saved-grid">
-                    {props.isMain ? null : <SavedNewsGrid />}
+                    {props.isMain ? null : 
+                    <SavedNewsGrid 
+                        savedCardsArray={props.savedCardsArray}
+                        currentPath={props.currentPath}
+                        handleDeleteCard={props.handleDeleteCard}
+                    />}
                 </div>
                 <div className="main__about-background">
                     {props.isMain ? <About

@@ -5,19 +5,168 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    height: 277px;
+    height: auto;
 }
 
 .card__container {
+    position: relative;
     background-color: white;
     border-radius: 15px;
     box-shadow: 0px 0px 64px -5px rgba(145, 145, 145, 0.6);
-    height: 576px;
+    height: auto;
 }
+
+.card__action-container {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 64px -5px rgb(5, 5, 5);
+}
+
+.card__action-button {
+    background-image: url('../../images/bookmark-not-saved.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 20px;
+    height: 26px;
+    border: none;
+    background-color: white;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    outline: none;
+    text-decoration: none;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.card__keyword-container {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: -315px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    transition: all .2s ease;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 64px -5px rgb(5, 5, 5);
+}
+
+.card__keyword {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    font-family: 'roboto-regular';
+    font-size: 10px;
+    line-height: 11,72px;
+    text-align: center;
+    font-weight: 500;
+    user-select: none;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.card__action-button-saved {
+    background-image: url('../../images/bookmark-saved.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 20px;
+    height: 26px;
+    border: none;
+    background-color: white;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    outline: none;
+    text-decoration: none;
+    transition: all .2s ease;
+}
+
+.card__action-button-delete {
+    background-image: url('../../images/trash.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 20px;
+    height: 26px;
+    border: none;
+    background-color: white;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    outline: none;
+    text-decoration: none;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+    .card__action-button-delete:hover {
+        background-image: url('../../images/trash-hover.svg');
+    }
+
+    .card__action-button-delete:hover+ .card__action-error {
+        display: flex;
+        opacity: 1;
+        transition: all .2s ease;
+    }
+
+.card__action-error {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 45px;
+    height: 40px;
+    border-radius: 8px;
+    width: 182px;
+    display: flex;
+    opacity: 0;
+    transition: all .2s ease;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__action-description {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    font-family: 'roboto-regular';
+    font-size: 10px;
+    line-height: 11,72px;
+    text-align: center;
+    font-weight: 500;
+    user-select: none;
+}
+
+    .card__action-button:hover {
+        background-image: url('../../images/bookmark-not-saved-hover.svg');
+    }
+
+    .card__action-button:hover+ .card__action-error {
+        display: flex;
+        opacity: 1;
+        transition: all .2s ease;
+    }
 
 .card__picture {
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
+    width: 100%;
+    height: 272px;
+    object-fit: cover;
 }
 
 .card__text-container {
@@ -60,6 +209,7 @@
     text-decoration: none;
     color: #B6BCBF;
     transition: all .3s ease;
+    padding-bottom: 20px;
 }
 
     .card__source:hover {
